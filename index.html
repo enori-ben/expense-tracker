@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#11120f">
+    <meta name="description" content="Track your income and expenses with a clean personal finance dashboard.">
+    <title>Expense Tracker | Personal Finance</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a href="#" class="brand">
+                <span class="brand-icon">E</span>
+                <span>Expense<span class="brand-light">Flow</span></span>
+            </a>
+
+            <p class="nav-heading">MENU</p>
+            <nav class="navigation">
+                <a href="#overview" class="nav-link active">
+                    <span>▦</span> Overview
+                </a>
+                <a href="#transactions" class="nav-link">
+                    <span>⇄</span> Transactions
+                </a>
+                <a href="#analytics" class="nav-link">
+                    <span>◔</span> Analytics
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-note">
+                    <span class="note-icon">✦</span>
+                    <p>Small steps today.<br><strong>Better finances tomorrow.</strong></p>
+                </div>
+                <p class="sidebar-footer">PERSONAL FINANCE · 2026</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">PERSONAL FINANCE</p>
+                    <h1>Dashboard</h1>
+                    <p class="muted">Welcome back! Here's your financial overview.</p>
+                </div>
+                <button class="primary-button" id="add-transaction-btn" type="button">
+                    <span>+</span> Add Transaction
+                </button>
+            </header>
+
+            <section id="overview" class="summary-grid" aria-label="Financial summary">
+                <article class="summary-card balance-card">
+                    <div class="card-top">
+                        <span>Total Balance</span>
+                        <span class="card-icon">◈</span>
+                    </div>
+                    <p class="summary-value" id="total-balance">0 DZD</p>
+                    <p class="card-caption">Income minus expenses</p>
+                </article>
+
+                <article class="summary-card">
+                    <div class="card-top">
+                        <span>Total Income</span>
+                        <span class="card-icon income-icon">↗</span>
+                    </div>
+                    <p class="summary-value" id="total-income">0 DZD</p>
+                    <p class="card-caption">All recorded income</p>
+                </article>
+
+                <article class="summary-card">
+                    <div class="card-top">
+                        <span>Total Expenses</span>
+                        <span class="card-icon expense-icon">↘</span>
+                    </div>
+                    <p class="summary-value" id="total-expenses">0 DZD</p>
+                    <p class="card-caption">All recorded expenses</p>
+                </article>
+            </section>
+
+            <section id="transactions" class="panel transactions-panel">
+                <div class="section-heading">
+                    <div>
+                        <h2>Recent Transactions</h2>
+                        <p class="muted">Manage and review your activity.</p>
+                    </div>
+                    <span id="transaction-count" class="count-badge">0 records</span>
+                </div>
+
+                <div class="toolbar">
+                    <label class="search-box">
+                        <span aria-hidden="true">⌕</span>
+                        <input id="search-input" type="search"
+                            placeholder="Search transactions..." aria-label="Search transactions">
+                    </label>
+
+                    <select id="type-filter" aria-label="Filter by transaction type">
+                        <option value="all">All types</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expenses</option>
+                    </select>
+
+                    <select id="category-filter" aria-label="Filter by category">
+                        <option value="all">All categories</option>
+                        <option>Salary</option>
+                        <option>Freelance</option>
+                        <option>Food</option>
+                        <option>Transport</option>
+                        <option>Shopping</option>
+                        <option>Bills</option>
+                        <option>Health</option>
+                        <option>Education</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transaction-list"></tbody>
+                    </table>
+                    <div id="empty-state" class="empty-state">
+                        <span class="empty-icon">↗</span>
+                        <h3>No transactions yet</h3>
+                        <p>Add your first transaction to start tracking your money.</p>
+                        <button class="text-button" id="empty-add-btn" type="button">
+                            + Add your first transaction
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="analytics" class="panel analytics-panel">
+                <div class="section-heading">
+                    <div>
+                        <h2>Expense Breakdown</h2>
+                        <p class="muted">See where your money goes.</p>
+                    </div>
+                </div>
+                <div id="category-breakdown" class="breakdown-list">
+                    <p class="muted">Your expense categories will appear here.</p>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <span>ExpenseFlow</span>
+                <span>Your finances, made clearer.</span>
+            </footer>
+        </main>
+    </div>
+
+    <dialog id="transaction-dialog" class="transaction-dialog">
+        <form id="transaction-form">
+            <div class="dialog-heading">
+                <div>
+                    <p class="eyebrow">YOUR MONEY</p>
+                    <h2>Add Transaction</h2>
+                </div>
+                <button type="button" class="close-button" id="close-dialog"
+                    aria-label="Close dialog">×</button>
+            </div>
+
+            <label for="transaction-title">Description</label>
+            <input id="transaction-title" name="title" type="text"
+                placeholder="e.g. Monthly salary" maxlength="80" required>
+
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="transaction-amount">Amount (DZD)</label>
+                    <input id="transaction-amount" name="amount" type="number"
+                        min="0.01" max="1000000000000" step="0.01"
+                        placeholder="0.00" required>
+                </div>
+                <div class="form-field">
+                    <label for="transaction-type">Type</label>
+                    <select id="transaction-type" name="type" required>
+                        <option value="expense">Expense</option>
+                        <option value="income">Income</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="transaction-category">Category</label>
+                    <select id="transaction-category" name="category" required>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Health">Health</option>
+                        <option value="Education">Education</option>
+                        <option value="Salary">Salary</option>
+                        <option value="Freelance">Freelance</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="transaction-date">Date</label>
+                    <input id="transaction-date" name="date" type="date" required>
+                </div>
+            </div>
+
+            <p id="form-error" class="form-error" role="alert"></p>
+
+            <div class="dialog-actions">
+                <button type="button" class="secondary-button" id="cancel-dialog">
+                    Cancel
+                </button>
+                <button type="submit" class="primary-button">Save Transaction</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
