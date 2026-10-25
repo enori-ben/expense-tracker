@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#11120f">
     <meta name="description" content="A simple personal expense tracker built as a learning project to practice HTML, CSS, and JavaScript.">
-    <meta name="author" content="BenAttous NourEddine">
-    <meta property="og:title" content="ExpenseFlow | Personal Expense Tracker">
-    <meta property="og:description" content="A simple personal project for tracking income and expenses while learning web development.">
-    <meta property="og:type" content="website">
     <title>ExpenseFlow | Personal Expense Tracker</title>
 
     <link rel="stylesheet" href="css/style.css">
@@ -18,7 +14,7 @@
 <body>
     <div class="app-shell">
         <aside class="sidebar">
-            <a href="#" class="brand">
+            <a href="#overview" class="brand">
                 <span class="brand-icon">E</span>
                 <span>Expense<span class="brand-light">Flow</span></span>
             </a>
@@ -39,9 +35,11 @@
             <div class="sidebar-bottom">
                 <div class="sidebar-note">
                     <span class="note-icon">✦</span>
-                    <p>Small steps today.<br><strong>Better finances tomorrow.</strong></p>
+                    <p>Small steps today.<br>
+                        <strong>Better finances tomorrow.</strong>
+                    </p>
                 </div>
-                <p class="sidebar-footer">PERSONAL FINANCE · 2026</p>
+                <p class="sidebar-footer">PERSONAL PROJECT · 2026</p>
             </div>
         </aside>
 
@@ -99,7 +97,8 @@
                     <label class="search-box">
                         <span aria-hidden="true">⌕</span>
                         <input id="search-input" type="search"
-                            placeholder="Search transactions..." aria-label="Search transactions">
+                            placeholder="Search transactions..."
+                            aria-label="Search transactions">
                     </label>
 
                     <select id="type-filter" aria-label="Filter by transaction type">
@@ -135,6 +134,7 @@
                         </thead>
                         <tbody id="transaction-list"></tbody>
                     </table>
+
                     <div id="empty-state" class="empty-state">
                         <span class="empty-icon">↗</span>
                         <h3>No transactions yet</h3>
@@ -160,22 +160,39 @@
 
             <footer class="page-footer">
                 <div class="footer-brand">
-                    <a class="footer-logo" href="#overview">Expense<span>Flow</span></a>
+                    <a class="footer-logo" href="#overview">
+                        Expense<span>Flow</span>
+                    </a>
                     <p>Your finances, made clearer.</p>
                     <p class="footer-note">
                         A simple personal project built to practice and
                         improve my web development skills.
                     </p>
                 </div>
+
                 <div class="footer-author">
                     <span class="footer-credit">Designed &amp; developed by</span>
                     <strong>BenAttous NourEddine<span class="footer-dot">.</span></strong>
+
                     <div class="footer-links">
-                        <a href="https://github.com/enori-ben" target="_blank" rel="noopener noreferrer" aria-label="Visit BenAttous NourEddine on GitHub">GitHub ↗</a>
-                        <a href="https://www.instagram.com/enori.benattous/" target="_blank" rel="noopener noreferrer" aria-label="Visit BenAttous NourEddine on Instagram">Instagram ↗</a>
+                        <a href="https://github.com/enori-ben"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Visit BenAttous NourEddine on GitHub">
+                            GitHub ↗
+                        </a>
+                        <a href="https://www.instagram.com/enori.benattous/"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Visit BenAttous NourEddine on Instagram">
+                            Instagram ↗
+                        </a>
                     </div>
                 </div>
-                <span class="footer-copyright">© 2026 NourEddine. All rights reserved.</span>
+
+                <span class="footer-copyright">
+                    © 2026 NourEddine. All rights reserved.
+                </span>
             </footer>
         </main>
     </div>
@@ -238,7 +255,9 @@
                 <button type="button" class="secondary-button" id="cancel-dialog">
                     Cancel
                 </button>
-                <button type="submit" class="primary-button">Save Transaction</button>
+                <button type="submit" class="primary-button">
+                    Save Transaction
+                </button>
             </div>
         </form>
     </dialog>
