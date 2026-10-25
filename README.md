@@ -1,7 +1,14 @@
-
 # ExpenseFlow — Personal Expense Tracker
 
 A responsive personal finance dashboard built with HTML, CSS, and vanilla JavaScript.
+
+## 🌐 Live Demo
+
+**Try the website:** [Open ExpenseFlow](https://enori-ben.github.io/expense-tracker/)
+
+## About the Project
+
+ExpenseFlow is a simple personal project created to practice and improve my web development skills. It provides a clean dashboard for tracking income and expenses in Algerian dinars (DZD).
 
 ## Features
 
@@ -45,8 +52,7 @@ expense-tracker/
 
 ## Data and Privacy
 
-Transactions are stored locally in the browser. They are not
-automatically synchronized between browsers or devices.
+Transactions are stored locally in the browser. They are not automatically synchronized between browsers or devices.
 
 Do not use this demo as a replacement for a secure financial system.
 
@@ -57,6 +63,13 @@ Do not use this demo as a replacement for a secure financial system.
 - Transaction editing.
 - CSV export.
 - Expense charts and monthly comparisons.
+
+## Author
+
+**BenAttous NourEddine**
+
+- GitHub: [@enori-ben](https://github.com/enori-ben)
+- Instagram: [@enori.benattous](https://www.instagram.com/enori.benattous/)
 
 ## License
 
