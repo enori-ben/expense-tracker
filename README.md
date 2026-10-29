@@ -68,7 +68,6 @@ Do not use this demo as a replacement for a secure financial system.
 
 **BenAttous NourEddine**
 
-- GitHub: [@enori-ben](https://github.com/enori-ben)
 - Instagram: [@enori.benattous](https://www.instagram.com/enori.benattous/)
 
 ## License
